@@ -1,1 +1,192 @@
-<p>create-user works!</p>
+
+{{inscription.value|json}}
+{{showError()}}
+<!--div id="box">
+
+
+    <form  [formGroup]="inscription" (submit)="handleSubmit()">
+        <h1>Inscrire Un Nouvel <span>Utilisateur!</span></h1>
+
+        <div class="row">
+            <div class="col">
+
+              <mat-form-field>
+                <input type="text"
+                formControlName="firstName"
+                [class.is-invalid]="firstName.touched && firstName.invalid"
+                [class.is-valid]="firstName.touched && firstName.valid"
+                class="form-control form-control mb-2"
+                placeholder="Entrez le FirstName"
+                name="firstName"
+                id="firstName"
+
+                />
+              </mat-form-field>
+            </div>
+            <p class="invalid-feeback text text-danger font-weight-bold" *ngIf="firstName.touched && firstName.hasError('required')"
+            >Le FirstName est Obligatoire</p>
+        </div>
+            <div class="col">
+
+                <input matInput
+                formControlName="lastName"
+                [class.is-invalid]="lastName.touched && lastName.invalid"
+                [class.is-valid]="lastName.touched && lastName.valid"
+                  type="text"
+                  name="lname"
+                  id="lname"
+                  class="form-control mb-2 form-control mb-2"
+                  placeholder="Ajouter la Lastname"
+                />
+            </div>
+
+       <p class="invalid-feeback text text-danger font-weight-bold"
+        *ngIf="lastName.touched && lastName.hasError('required')">Le Lastname est Obligatoire</p>
+
+            <div class="col">
+
+                <input type="text"
+                formControlName="title"
+                [class.is-invalid]="title.touched && title.invalid"
+                [class.is-valid]="title.touched && title.valid"
+                required
+                class="form-control form-control mb-2"
+                placeholder="Entrez le nom du title"
+                name="title"
+                id="title"
+                />
+            </div>
+            <p class="invalid-feeback text text-danger font-weight-bold" *ngIf="title.touched && title.hasError('required')">Le Title Est Obligatoire</p>
+            <div class="col">
+
+                <input
+                formControlName="email"
+                  type="text"
+                  name="email"
+                  id="email"
+                  email
+                  class="form-control mb-2 form-control mb-2"
+                  placeholder="Entrer L'email"
+                  [class.is-invalid]="email.touched && email.invalid"
+                [class.is-valid]="email.touched && email.valid"
+                />
+            </div>
+            <p class="invalid-feeback text text-danger font-weight-bold" *ngIf="email.touched && email.hasError('required')">L'email Est required</p>
+            <p class="invalid-feeback text text-danger font-weight-bold" *ngIf="email.touched && email.hasError('email')" >Le Format de L'email est Invalid</p>
+
+
+            <div class="col">
+                <input
+                formControlName="displayName"
+                [class.is-invalid]="displayName.touched && displayName.invalid"
+                [class.is-valid]="displayName.touched && displayName.valid"
+                  type="text"
+                  name="text"
+                  id="text"
+                  class="form-control mb-2 form-control mb-2"
+                  placeholder="Ajouter la Display Name"
+                />
+            </div>
+            <p class="invalid-feeback text text-danger font-weight-bold" *ngIf="displayName.touched && displayName.hasError('required')">Le Display Name est Invalid</p>
+
+            <div class="col">
+               <input
+                formControlName="password"
+                [class.is-invalid]="password.touched && password.invalid"
+                [class.is-valid]="password.touched && password.valid"
+                  type="password"
+                  name="password"
+                  id="password"
+                  class="form-control mb-2 form-control mb-2"
+                  placeholder="Mot de Passe"
+                />
+            </div>
+            <p class="invalid-feeback text text-danger font-weight-bold" *ngIf="password.touched && password.hasError('required')">Le Display Name est Invalid</p>
+            <div class="col">
+                <input
+                formControlName="confirm"
+                [class.is-invalid]="confirm.touched && confirm.invalid"
+                [class.is-valid]="confirm.touched && confirm.valid"
+                  type="password"
+                  name="confirm"
+                  id="confirm"
+                  class="form-control mb-2 form-control mb-2"
+                  placeholder="Confirmer le Mot de Passe"
+                />
+            </div>
+            <p class="invalid-feeback text text-danger font-weight-bold" *ngIf="confirm.touched && confirm.hasError('required')">Le Display Name est Invalid</p>
+
+
+        <button type="submit" class="btn btn-primary">Vaider</button>
+
+    </form>
+</div-->
+<div class="card-body">
+  <nav class="mat-toolbar ">
+    <div class="container-fluid">
+      <nav aria-label="breadcrumb">
+        <ul class="mat-breadcrumb">
+          <li class="mat-breadcrumb-item"><a routerLink="/">Home/</a></li>
+          <li class="mat-breadcrumb-item"><a routerLink="/users">Users/</a></li>
+          <li class="mat-breadcrumb-item " ><a routerLink="/users/create">CreateUser</a> </li>
+        </ul>
+      </nav>
+    </div>
+  </nav>
+</div>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Inscrire un nouvel utilisateur!</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="inscription" (submit)="handleSubmit()">
+      <mat-form-field class="full-width">
+        <mat-label>Entrez le FirstName</mat-label>
+        <input matInput formControlName="firstName" placeholder="Entrez le FirstName" />
+        <mat-error *ngIf="firstName.touched && firstName.hasError('required')">Le FirstName est obligatoire</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Entrez le Lastname </mat-label>
+        <input matInput formControlName="lastName" placeholder="Ajouter la Lastname" />
+        <mat-error *ngIf="lastName.touched && lastName.hasError('required')">Le Lastname est obligatoire</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Entrez le titre </mat-label>
+        <input matInput formControlName="title" placeholder="Entrez le nom du titre" />
+        <mat-error *ngIf="title.touched && title.hasError('required')">Le titre est obligatoire</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Entrez l'email </mat-label>
+        <input matInput formControlName="email" placeholder="Entrer l'email" />
+        <mat-error *ngIf="email.touched && (email.hasError('required') || email.hasError('email'))">
+          L'email est invalide
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Entrez le Display Name </mat-label>
+        <input matInput formControlName="displayName" placeholder="Ajouter le Display Name" />
+        <mat-error *ngIf="displayName.touched && displayName.hasError('required')">Le Display Name est obligatoire</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Entrez le Password </mat-label>
+        <input matInput formControlName="password" type="password" placeholder="Mot de Passe" />
+        <mat-error *ngIf="password.touched && password.hasError('required')">Le mot de passe est obligatoire</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Confirmez le Password </mat-label>
+        <input matInput formControlName="confirm" type="password" placeholder="Confirmer le Mot de Passe" />
+        <mat-error *ngIf="confirm.touched && confirm.hasError('required')">La confirmation du mot de passe est obligatoire</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" color="primary">Valider</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+

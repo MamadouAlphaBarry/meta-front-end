@@ -1,4 +1,4 @@
-/* STYLES GENERAUX */
+/* STYLES GENERAUX 
 body{
   font-family: 'Open Sans', sans-serif;
   height: 2000px;
@@ -10,7 +10,7 @@ a{
   text-decoration: none;
 }
 
-/* NAVIGATION */
+/* NAVIGATION 
 nav{
   width: 200px;
   height: 100%;
@@ -92,7 +92,7 @@ nav .fa{
   font-size: 26px;
 }
 
-/* BOUTON */
+/* BOUTON 
 #btn-burger{
   width: 34px;
   height: 26px;
@@ -152,7 +152,7 @@ nav .fa{
   background-color: white;
 }
 
-/* CONTENU */
+/* CONTENU 
 main{
   padding: 80px 30px 0 80px;
   -webkit-transition: -webkit-transform .5s ease;
@@ -165,7 +165,7 @@ main.open{
   transform: translateX(300px);
 }
 
-/* MASQUE */
+/* MASQUE 
 #mask{
   position: fixed;
   width: 100%;
@@ -213,7 +213,10 @@ main.open{
   padding: 8px 0;
   font-size: 15px;
 }
-
+*/
+.spacer{
+  flex: auto;
+}
 
 
 

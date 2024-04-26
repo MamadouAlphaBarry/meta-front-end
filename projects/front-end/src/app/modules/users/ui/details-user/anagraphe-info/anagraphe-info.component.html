@@ -1,0 +1,234 @@
+<!--div class="container mt-3">
+    <div class="card">
+      <div class="card-header">Registre de Paie</div>
+      <div class="card-body">
+        <form>
+            <div class="row mt-3">
+              <div class="col">
+              <label for="">Code Fiscale</label>
+              <input type="text" class="form-control" placeholder="CODE FISCAL" name="codfiscal">
+              </div>
+              <div class="col">
+                <label for="">Matricola</label>
+                <input type="text" class="form-control" placeholder="Entrez la Matricule" name="matricule">
+              </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <label for="">CCNL</label>
+                    <select class="form-select mt-3">
+                        <option>Torino</option>
+                        <option>Milano</option>
+                        <option>Verona</option>
+                        <option>Vicenza</option>
+                        <option>Padova</option>
+                        <option>Bologna</option>
+                      </select>
+
+                </div>
+                <div class="col">
+                    <label for="">Lettre di Asssuntion</label>
+                  <input type="file" class="form-control" placeholder="Enter la lettre " name="lettre">
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-6">
+                    <label for="">Date Du Debut</label>
+                  <input type="date" class="form-control" placeholder="datedebut" name="debut">
+                </div>
+                <div class="col">
+                    <label for="">Date Fin</label>
+                    <input type="date" class="form-control" placeholder="Entrer la date de fin" name="fin">
+                </div>
+
+              </div>
+              <div class="row mt-3">
+                <div class="col-6">
+                    <label for="">IBAN</label>
+                  <input type="text" class="form-control" placeholder="telephone d'entreprise" name="numService">
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Vincolo Sur le profile d'heure
+                        <label class="form-check-label" for="radio1"></label>
+                      </div>
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Transfert Activè
+                        <label class="form-check-label" for="radio2"></label>
+                      </div>
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input" >Absence Activè
+                        <label class="form-check-label"></label>
+                      </div>
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input" >Reperable
+                        <label class="form-check-label"></label>
+                      </div>
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input" >Straordinaire
+                        <label class="form-check-label"></label>
+                      </div>
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input" >Frais De Divertissement
+                        <label class="form-check-label"></label>
+                      </div>
+                </div>
+
+              </div>
+
+              <div class="card">
+                <div class="card-header">Profile horaire de la Semaine</div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Lun.</th>
+                            <th>Mar.</th>
+                            <th>Mer.</th>
+                            <th>Jeu.</th>
+                            <th>Ven.</th>
+                            <th>Sam.</th>
+                            <th>Dim.</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><input type="text" value="8" name="lun" class="form-control form-control-sm"></td>
+                            <td><input type="text"  value="8" name="mar"  class="form-control form-control-sm"></td>
+                            <td><input type="text"  value="8" name="mer"  class="form-control form-control-sm"></td>
+                            <td><input type="text"  value="8" name="jeu"  class="form-control form-control-sm"></td>
+                            <td><input type="text" value="8" name="ven"  class="form-control form-control-sm"></td>
+                            <td><input type="text" value="0" name="sam"  class="form-control form-control-sm"></td>
+                            <td><input type="text" value="0" name="dim"  class="form-control form-control-sm"></td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                </div>
+
+              </div>
+          </form>
+      </div>
+      <div class="card-footer">
+        <div class="row mt-3">
+            <div class="col">
+                <button type="button" class="btn btn-outline-secondary">Mettre à Jour l'Utilisateur</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div-->
+<div class="container mt-3">
+  <mat-card>
+    <mat-card-header>Registre de Paie</mat-card-header>
+    <mat-card-content>
+      <form>
+        <div class="row mt-3">
+          <div class="col">
+            <mat-form-field class="mat-form-field">
+              <mat-label>Code Fiscale</mat-label>
+              <input matInput placeholder="CODE FISCAL" name="codfiscal">
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="mat-form-field">
+              <mat-label>Matricola</mat-label>
+              <input matInput placeholder="Entrez la Matricule" name="matricule">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <mat-form-field class="mat-form-field">
+              <mat-label>CCNL</mat-label>
+              <mat-select>
+                <mat-option>Torino</mat-option>
+                <mat-option>Milano</mat-option>
+                <mat-option>Verona</mat-option>
+                <mat-option>Vicenza</mat-option>
+                <mat-option>Padova</mat-option>
+                <mat-option>Bologna</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="mat-form-field">
+              <mat-label>Lettre di Asssuntion</mat-label>
+              <input type="text" matInput placeholder="Enter la lettre " name="lettre">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-6">
+            <mat-form-field class="mat-form-field">
+              <mat-label>Date Du Debut</mat-label>
+              <input matInput type="date" placeholder="datedebut" name="debut">
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="mat-form-field">
+              <mat-label>Date Fin</mat-label>
+              <input matInput type="date" placeholder="Entrer la date de fin" name="fin">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-6">
+            <mat-form-field class="mat-form-field">
+              <mat-label>IBAN</mat-label>
+              <input matInput placeholder="IBAN" name="numService">
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <mat-radio-group>
+                <mat-radio-button value="option1">Vincolo Sur le profile d'heure</mat-radio-button>
+                <mat-radio-button value="option2">Transfert Activè</mat-radio-button>
+                <mat-radio-button>Absence Activè</mat-radio-button>
+                <mat-radio-button>Reperable</mat-radio-button>
+                <mat-radio-button>Straordinaire</mat-radio-button>
+                <mat-radio-button>Frais De Divertissement</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+        <div class="card mt-3">
+          <div class="card-header">Profile horaire de la Semaine</div>
+          <div class="card-body">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Lun.</th>
+                <th>Mar.</th>
+                <th>Mer.</th>
+                <th>Jeu.</th>
+                <th>Ven.</th>
+                <th>Sam.</th>
+                <th>Dim.</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><input matInput type="number" value="8" name="lun"></td>
+                <td><input matInput type="number" value="8" name="mar"></td>
+                <td><input matInput type="number" value="8" name="mer"></td>
+                <td><input matInput type="number" value="8" name="jeu"></td>
+                <td><input matInput type="number" value="8" name="ven"></td>
+                <td><input matInput type="number" value="0" name="sam"></td>
+                <td><input matInput type="number" value="0" name="dim"></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+    <mat-card-footer>
+      <div class="row mt-3">
+        <div class="col">
+          <button mat-raised-button color="primary">Mettre à Jour l'Utilisateur</button>
+        </div>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</div>

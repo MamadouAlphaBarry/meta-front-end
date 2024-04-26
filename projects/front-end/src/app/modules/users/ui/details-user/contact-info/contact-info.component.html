@@ -1,0 +1,152 @@
+{{contactForm.value|json}}
+<!--div class="container mt-3">
+    <div class="card">
+      <div class="card-header">Information De Base De L'Utilisateur!</div>
+      <div class="card-body">
+        <form [formGroup]="contactForm" (submit)="handleSubmit()">
+            <div class="row mt-3">
+              <div class="col">
+                <select class="form-select mt-3" formControlName="sede">
+                    <option>Torino</option>
+                    <option>Milano</option>
+                    <option>Verona</option>
+                    <option>Vicenza</option>
+                    <option>Padova</option>
+                    <option>Bologna</option>
+                  </select>
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Entrez L'addresse" name="addresse" formControlName="addresse">
+              </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="La Ville" name="ville" formControlName="ville">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="Enter le Province " name="province" formControlName="province">
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-6">
+                  <input type="text" class="form-control" placeholder="CAP" name="cap" formControlName="cap">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Entrer le Pays" name="pays" formControlName="pays">
+                </div>
+
+              </div>
+              <div class="row mt-3">
+                <div class="col-6">
+                  <input type="text" class="form-control" placeholder="telephone d'entreprise" name="telephone" formControlName="telephone">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Entrer Le Telephne Personnel" name="telephoneInterne" formControlName="telephoneInterne">
+                </div>
+
+              </div>
+              <div class="row mt-3">
+                <div class="col-6">
+                  <input type="text" class="form-control" placeholder="Cellulair" name="cellulaire" formControlName="cellulaire">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="city" name="city" formControlName="city">
+                </div>
+
+              </div>
+          </form>
+      </div>
+      <div class="card-footer">
+        <div class="row mt-3">
+            <div class="col">
+                <button type="submit" class="btn btn-outline-secondary">Secondary</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div-->
+<div class="container mt-3">
+  <mat-card>
+    <mat-card-header>Information De Base De L'Utilisateur!</mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="contactForm" (submit)="handleSubmit()">
+        <div class="row mt-3">
+          <div class="col">
+            <mat-form-field class="mat-form-field">
+              <mat-label>Sede</mat-label>
+              <mat-select formControlName="sede">
+                <mat-option>Torino</mat-option>
+                <mat-option>Milano</mat-option>
+                <mat-option>Verona</mat-option>
+                <mat-option>Vicenza</mat-option>
+                <mat-option>Padova</mat-option>
+                <mat-option>Bologna</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="mat-form-field">
+              <input matInput placeholder="Entrez L'addresse" name="addresse" formControlName="addresse">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <mat-form-field class="mat-form-field">
+              <input matInput placeholder="La Ville" name="ville" formControlName="ville">
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="mat-form-field">
+              <input matInput placeholder="Enter le Province" name="province" formControlName="province">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-6">
+            <mat-form-field class="mat-form-field">
+              <input matInput placeholder="CAP" name="cap" formControlName="cap">
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="mat-form-field">
+              <input matInput placeholder="Entrer le Pays" name="pays" formControlName="pays">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-6">
+            <mat-form-field class="mat-form-field">
+              <input matInput placeholder="telephone d'entreprise" name="telephone" formControlName="telephone">
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="mat-form-field">
+              <input matInput placeholder="Entrer Le Telephne Personnel" name="telephoneInterne" formControlName="telephoneInterne">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-6">
+            <mat-form-field class="mat-form-field">
+              <input matInput placeholder="Cellulair" name="cellulaire" formControlName="cellulaire">
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="mat-form-field">
+              <input matInput placeholder="city" name="city" formControlName="city">
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+    <mat-card-footer class="mat-card-footer">
+      <div class="row mt-3">
+        <div class="col">
+          <button mat-raised-button color="primary" type="submit">Secondary</button>
+        </div>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</div>
+

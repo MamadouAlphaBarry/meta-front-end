@@ -1,1 +1,61 @@
-<p>create-reports works!</p>
+<div class="contaiener">
+    <div class="row">
+
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">le nom de user</div>
+                <div class="card-body">dd</div>
+                <div class="card-footer">Footer</div>
+              </div>
+        </div>
+    </div>
+</div>
+<div *ngFor="let day of daysInMonth">
+    <!--p>{{ day.day }} - {{ day.date }}</p-->
+  </div>
+  <table class="table table-bordered mt-5" style="width:100%">
+    <thead>
+      <tr >
+        <th style="width:10%"></th>
+        <th *ngFor="let day of daysInMonth">
+            <p>{{ day.day }}</p>
+            <p>{{ day.date }}</p>
+            
+        </th>
+       
+      </tr>
+    </thead>
+    <tbody>
+        <tr >
+            <td style="width:10%">
+                <p style="font-weight: bold;">S0072214511-</p>
+                <p style="font-weight: bold;">Solidarietà - ICT</p></td>
+            <td *ngFor="let day of daysInMonth">
+                <input type="text" class="form-control">
+                
+            </td>
+        </tr>
+        <tr >
+            <td style="width:10%">
+                <p style="font-weight: bold;">S0072214511-</p>
+                <p style="font-weight: bold;">Solidarietà - ICT</p></td>
+            <td *ngFor="let day of daysInMonth">
+                <p><input type="text" class="form-control"></p>
+                
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr >
+            <td style="width:10%">
+                <p style="font-weight: bold;">TOTALE</p>
+                
+            <td *ngFor="let day of daysInMonth">
+                <p>X</p>
+                
+            </td>
+        </tr>
+      </tfoot>
+  </table>

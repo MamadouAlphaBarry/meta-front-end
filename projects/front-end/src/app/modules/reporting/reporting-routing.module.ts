@@ -7,12 +7,16 @@ import {ListUsersComponent} from "../users/ui/list-users/list-users.component";
 import {CreateReportsComponent} from "./ui/create-reports/create-reports.component";
 import {EditReportComponent} from "./ui/edit-report/edit-report.component";
 import {ListReportsComponent} from "./ui/list-reports/list-reports.component";
+import { AbsenceRequestComponent } from './ui/absence-request/absence-request.component';
+import { AbsenceRequestListComponent } from './ui/absence-request-list/absence-request-list.component';
 
 const routes: Routes = [
   { path: '', component: ReportingComponent },
   {path:'create',component:CreateReportsComponent},
   {path:'edit',component:EditReportComponent},
-  {path:'list',component:ListReportsComponent}
+  {path:'list',component:ListReportsComponent},
+  {path:'request/new', component:AbsenceRequestComponent},
+  {path:'request/list',component:AbsenceRequestListComponent}
 ];
 
 @NgModule({

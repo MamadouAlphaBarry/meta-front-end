@@ -1,1 +1,122 @@
-<p>create-job works!</p>
+
+<!--div style="padding: 10px ">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>  Ajouter un Job</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+    </mat-card-content>
+    <form [formGroup]="jobForm">
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <mat-label>Name:</mat-label>
+            <input
+              name="name"
+                   placeholder="Entrez le nom du Job"
+                   formControlName="name">
+            <mat-error *ngIf="jobForm.get('name').invalid && jobForm.get('name').touched">
+              <span *ngIf="jobForm.get('name').hasError('required')">Le Nom du Job est Obligatoire!</span>
+              <span *ngIf="jobForm.get('name').hasError('minlength')">Le Nom du Job doit avoir au moins 5 caractères!</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <mat-label>Description:</mat-label>
+            <input matInput
+                   placeholder="Ajouter la description"
+                   formControlName="description">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <mat-label>StartDate:</mat-label>
+            <input matInput
+                   type="date"
+                   placeholder="Enter la date du debut"
+                   formControlName="startDate">
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <mat-label>EndDate:</mat-label>
+            <input matInput
+                   type="date"
+                   placeholder="Enter endDate"
+                   formControlName="endDate">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <mat-label>Client:</mat-label>
+            <mat-select formControlName="client">
+              <mat-option value="alpha">Alpha</mat-option>
+              <mat-option value="aliou">Aliou</mat-option>
+              <mat-option value="saliou">Saliou</mat-option>
+              <mat-option value="aissatou">Aissatou</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <mat-label>PM:</mat-label>
+            <mat-select formControlName="pm">
+              <mat-option value="alpha">Alpha</mat-option>
+              <mat-option value="aliou">Aliou</mat-option>
+              <mat-option value="saliou">Saliou</mat-option>
+              <mat-option value="aissatou">Aissatou</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <mat-label>EnableAt:</mat-label>
+            <input matInput
+                   type="date"
+                   placeholder="Enter la date du debut"
+                   formControlName="enableAt">
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <mat-label>DeletedAt:</mat-label>
+            <input matInput
+                   type="date"
+                   placeholder="Enter endDate"
+                   formControlName="deletedAt">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-checkbox formControlName="isInternal">Is Internal</mat-checkbox>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <mat-label>Comments:</mat-label>
+            <textarea matInput
+                      rows="5"
+                      formControlName="comments"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="d-grid mt-3">
+        <button mat-raised-button color="primary" type="submit" [disabled]="jobForm.invalid">Save</button>
+      </div>
+    </form>
+
+  </mat-card>
+

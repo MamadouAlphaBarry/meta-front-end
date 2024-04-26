@@ -1,24 +1,127 @@
-<div class="grid-container">
-  <div class="item1">
-    <app-navbar></app-navbar>
-  </div>
-  <div class="item2">
-    <nav>
-      <div id="logo-container">
-        <a href="#"> <img src="./assets/images/logo2.png" alt=""  width="50px" height="50px" class="rounded-circle mr-auto"> </a>
-      </div>
-      <a href="#" class="lien1"><i class="bi bi-house"></i> Accueil</a>
-      <hr/>
-      <a routerLink="/users" class="lien2"><i class="bi bi-people-fill"></i> USER</a>
-      <hr/>
-      <a routerLink="/resources" class="lien3"><i class="bi bi-file-check"></i> RESOURCE</a>
-      <hr/>
-      <a routerLink="/reporting" class="lien4"><i class="bi bi-card-checklist"></i> REPORTING</a>
-      <hr/>
-      <a routerLink="/jobs" class="lien5"><i class="bi bi-pc-display-horizontal"></i> JOB</a>
-      <hr/>
-    </nav>
-  </div>
+
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="mydrawer.toggle()">
+    <mat-icon >menu</mat-icon>
+  </button>
+  <span class="spacer"></span>
+  <button  mat-button><mat-icon> mail_outline</mat-icon></button>
+  <button  mat-button><mat-icon> notifications</mat-icon></button>
+
+  <button mat-button [matMenuTriggerFor]="importMenu">
+    <mat-icon iconPositionEnd>arrow_drop_down</mat-icon>
+    Profile
+  </button>
+  <mat-menu #importMenu>
+    <button mat-menu-item>voir mon profile</button>
+    <mat-divider></mat-divider>
+
+    <button mat-raised-button color="accent"> Logout</button>
+
+  </mat-menu>
+
+  <mat-menu #jobMenu>
+    <button mat-menu-item routerLink="/jobs/create">create Job</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item routerLink="/jobs/list">Liste Job</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item routerLink="/jobs/edit">Edit Job</button>
+    <mat-divider></mat-divider>
+  </mat-menu>
+
+
+  <mat-menu #userMenu>
+    <button mat-menu-item routerLink="/users/create">create User</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item routerLink="/users/list">Liste user</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item>Edit User</button>
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+    <button mat-menu-item  routerLink="/users/details">detils</button>
+    <mat-divider></mat-divider>
+  </mat-menu>
+
+  <mat-menu #reportMenu>
+    <button mat-menu-item routerLink="/users">create report</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item>Liste reports</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item>Edit rapport</button>
+    <mat-divider></mat-divider>
+  </mat-menu>
+  <mat-menu #resourceMenu>
+    <button mat-menu-item routerLink="/users">create resource</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item>Liste resource</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item>Edit resource</button>
+    <mat-divider></mat-divider>
+  </mat-menu>
+
+</mat-toolbar>
+<mat-drawer-container>
+  <mat-drawer #mydrawer mode="side" position="start" opened="true">
+    <mat-nav-list>
+      <mat-list-item>
+        <button mat-button routerLink="/" >
+
+         <mat-icon>home</mat-icon> DashBoard
+
+        </button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <button mat-button [matMenuTriggerFor]="jobMenu">
+          <mat-icon iconPositionEnd>arrow_drop_down</mat-icon>
+          <mat-icon>list</mat-icon> Job
+
+        </button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <button mat-button [matMenuTriggerFor]="reportMenu">
+          <mat-icon iconPositionEnd>arrow_drop_down</mat-icon>
+          <mat-icon>subject</mat-icon> Reporting
+
+        </button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <button mat-button [matMenuTriggerFor]="resourceMenu">
+          <mat-icon iconPositionEnd>arrow_drop_down</mat-icon>
+          <mat-icon>subject</mat-icon> Resource
+
+        </button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+      <button mat-button [matMenuTriggerFor]="userMenu">
+        <mat-icon>people</mat-icon>
+       <mat-icon iconPositionEnd>arrow_drop_down</mat-icon> Users
+      </button>
+    </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <button mat-button [matMenuTriggerFor]="userMenu">
+          <mat-icon>people</mat-icon>
+          <mat-icon iconPositionEnd>arrow_drop_down</mat-icon> Customer
+        </button>
+      </mat-list-item>
+<mat-divider></mat-divider>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+    <div style="min-height: 15px;"></div>
+    <app-dash-board></app-dash-board>
+
+  </mat-drawer-content>
+
+</mat-drawer-container>
+
+
+<!--div class="grid-container">
+
 
   <div class="item3 mb-4">
     <section class="sect">
@@ -35,11 +138,15 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/jobs">Jobs</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/customers">Customers</a>
+        </li>
       </ul>
     </section>
     <router-outlet></router-outlet>
   </div>
- 
+
   <div class="item5">Footer</div>
-  <div class="item6">Logo</div>
-</div>
+
+</div-->
+

@@ -1,0 +1,128 @@
+<!--div class="container mt-3">
+    <div class="card">
+      <div class="card-header">Cout Total</div>
+      <div class="card-body">
+        <form>
+            <div class="row mt-3">
+              <div class="col">
+                <label for="">Cout d'entreprise</label>
+                <input type="number" class="form-control" placeholder="Enter le cout Total" name="cost">
+              </div>
+              <div class="col">
+                <label for="">RAL</label>
+                <input type="number" class="form-control" placeholder="Entrez cout total" name="ral">
+              </div>
+            </div>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>Type De Cout</th>
+                    <th>Valeur</th>
+                    <th>+</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><select class="form-select mt-3">
+                        <option>MBO</option>
+                        <option>Ticket Restaurant</option>
+                        <option>Rembourssement KM</option>
+
+                      </select></td>
+
+                            <td><br/><input type="text"  value="8" name="mar"  class="form-control form-control-sm"></td>
+                            <td><br/><button class="btn">del</button></td>
+
+
+                  </tr>
+
+
+                </tbody>
+              </table>
+
+          </form>
+      </div>
+      <div class="card-footer">
+        <div class="row mt-3">
+            <div class="col">
+                <button type="button" class="btn btn-outline-secondary">Mettre à Jour l'Utilisateur</button>
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </div-->
+<div class="container mt-3">
+  <mat-card>
+    <mat-card-header>Cout Total</mat-card-header>
+    <mat-card-content>
+      <form>
+        <div class="row mt-3">
+          <div class="col">
+            <mat-form-field class="mat-form-field">
+              <mat-label>Cout d'entreprise</mat-label>
+              <input matInput type="number" placeholder="Enter le cout Total" name="cost">
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="mat-form-field">
+              <mat-label>RAL</mat-label>
+              <input matInput type="number" placeholder="Entrez cout total" name="ral">
+            </mat-form-field>
+          </div>
+        </div>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Type De Cout</th>
+            <th>Valeur</th>
+            <th>
+              <div class="button-container">
+                <button mat-fab color="primary" >
+                  <mat-icon>plus_one</mat-icon>
+                </button>
+              </div>
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>
+              <mat-form-field class="mat-form-field">
+                <mat-label>Type De Cout</mat-label>
+                <mat-select>
+                  <mat-option>MBO</mat-option>
+                  <mat-option>Ticket Restaurant</mat-option>
+                  <mat-option>Rembourssement KM</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="mat-form-field">
+                <mat-label>Valeur</mat-label>
+                <input matInput type="text" value="8" name="mar">
+              </mat-form-field>
+            </td>
+            <td><button mat-button>
+              <div class="button-container">
+                <button mat-fab color="warn" >
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </button></td>
+          </tr>
+          </tbody>
+        </table>
+      </form>
+    </mat-card-content>
+    <mat-card-footer>
+      <div class="row mt-3">
+        <div class="col">
+          <button mat-raised-button color="primary">Mettre à Jour l'Utilisateur</button>
+        </div>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</div>
+

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import * as $ from "jquery";
+//import * as $ from "jquery";
 
 @Component({
   selector: 'app-sidebar',
@@ -9,9 +9,10 @@ import * as $ from "jquery";
 export class SidebarComponent implements OnInit{
 
   ngOnInit(): void {
-    $('#btn-burger, #mask').on('click', function(){
-      $('nav, main, body, #mask, #btn-burger, nav>a').toggleClass('open');
-    });
+    //$('#btn-burger, #mask').on('click', function(){
+    //  $('nav, main, body, #mask, #btn-burger, nav>a').toggleClass('open');
+    }
+  //);
 
-  }
+  //}
 }

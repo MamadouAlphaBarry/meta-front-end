@@ -7,6 +7,8 @@ import { EditReportComponent } from './ui/edit-report/edit-report.component';
 import { EcreateReportComponent } from './ui/ecreate-report/ecreate-report.component';
 import { ListReportsComponent } from './ui/list-reports/list-reports.component';
 import { CreateReportsComponent } from './ui/create-reports/create-reports.component';
+import { AbsenceRequestComponent } from './ui/absence-request/absence-request.component';
+import { AbsenceRequestListComponent } from './ui/absence-request-list/absence-request-list.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { CreateReportsComponent } from './ui/create-reports/create-reports.compo
     EditReportComponent,
     EcreateReportComponent,
     ListReportsComponent,
-    CreateReportsComponent
+    CreateReportsComponent,
+    AbsenceRequestComponent,
+    AbsenceRequestListComponent
   ],
   imports: [
     CommonModule,

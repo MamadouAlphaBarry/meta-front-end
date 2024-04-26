@@ -1,0 +1,27 @@
+/* Pour ajuster les marges des éléments du formulaire */
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Pour ajuster la largeur des colonnes dans la grille */
+.col {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+/* Pour ajuster la largeur de la première colonne */
+.col-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+/* Pour ajuster la largeur du bouton */
+.mat-card-footer .mat-raised-button {
+  width: 100%;
+}
+
+/* Pour ajouter un espacement entre les boutons */
+.mat-card-footer .col {
+  margin-bottom: 10px;
+}

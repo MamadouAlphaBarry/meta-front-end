@@ -1,0 +1,80 @@
+<!--div class="row">
+    <div class="col-4">
+      <div class="list-group">
+
+        <a routerLink="/customers/create" class="list-group-item list-group-item-action">Create Job</a>
+        <a routerLink="/customers/list" class="list-group-item list-group-item-action">Liste Job</a>
+        <a routerLink="#" class="list-group-item list-group-item-action">Stats Job</a>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card text-center">
+        <div class="card-header">
+          Customers
+        </div>
+        <div class="card-body">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div-->
+<div class="container mt-3">
+  <div class="row">
+    <!-- Carte pour afficher la liste des utilisateurs -->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Liste des Utilisateurs</h5>
+          <p class="card-text">Visualisez la liste complète des utilisateurs.</p>
+          <a href="/customers/list" class="btn btn-primary">
+            <mat-icon>list</mat-icon> Voir la Liste
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Carte pour créer un nouveau utilisateur -->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Créer un Nouvel Utilisateur</h5>
+          <p class="card-text">Ajoutez un nouvel utilisateur à la base de données.</p>
+          <a href="/customers/create" class="btn btn-primary">
+            <mat-icon>person_add</mat-icon> Créer un Customer
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <!-- Carte pour afficher le nombre de utilisateurs consultants -->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Utilisateurs Consultants</h5>
+          <p class="card-text">Nombre total d'utilisateurs consultants.</p>
+          <p class="card-text">300</p>
+        </div>
+      </div>
+    </div>
+    <!-- Carte pour afficher le nombre de utilisateurs employés -->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Utilisateurs Employés</h5>
+          <p class="card-text">Nombre total d'utilisateurs employés.</p>
+          <p class="card-text"> 500 </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+

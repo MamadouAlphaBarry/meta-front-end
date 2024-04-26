@@ -1,1 +1,97 @@
-<p>list-users works!</p>
+<mat-card>
+  <mat-card-header><mat-card-title>Liste Des Utilisateurs</mat-card-title></mat-card-header>
+  <mat-card-content>
+    <mat-form-field appearance="outline" >
+      <mat-label>Search</mat-label>
+      <input matInput (change)="filterData($event)">
+    </mat-form-field>
+    <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8 demo-table" >
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+      <!-- Position Column -->
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> FullName </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName}}-{{element.lastName}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Inquadrament Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="primary" class="" > Edit</button>
+          <button mat-flat-button color="warn"  class="btnMargin" > Cancel</button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="impersonate">
+        <th mat-header-cell *matHeaderCellDef> Impersonate </th>
+        <td mat-cell *matCellDef="let element">
+
+          <button mat-fab color="primary" >
+            <mat-icon>visibility</mat-icon>
+          </button>
+
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[2,5, 10, 20,50,100,250,500,1000]"
+                   showFirstLastButtons=""
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+
+  </mat-card-content>
+</mat-card>
+<div class="container mt-3">
+    <h2>Striped Rows</h2>
+    <p>The .table-striped class adds zebra-stripes to a table:</p>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>FullName</th>
+          <th>Inquadramente Type</th>
+          <th>Azioni</th>
+          <th>Imperson</th>
+        </tr>
+      </thead>
+      <tbody  class>
+        <tr>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+        </tr>
+        <tr>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+

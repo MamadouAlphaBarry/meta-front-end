@@ -1,0 +1,30 @@
+/* Style pour la carte */
+.mat-card {
+  width: 800px; /* Largeur de la carte */
+  margin: auto; /* Centrer la carte horizontalement */
+  margin-top: 20px; /* Marge supérieure */
+  border-radius: 10px; /* Rayon de bordure de la carte */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre de la carte */
+}
+
+/* Style pour le titre de la carte */
+.mat-card-title {
+  font-size: 20px; /* Taille de la police du titre */
+  font-weight: bold; /* Gras pour le titre */
+}
+
+/* Style pour le contenu de la carte */
+.mat-card-content {
+  padding: 20px; /* Espacement interne du contenu de la carte */
+}
+
+/* Style pour les champs de formulaire à l'intérieur de la carte */
+.mat-form-field {
+  width: 100%; /* Largeur du champ de formulaire */
+}
+
+/* Style pour les boutons à l'intérieur de la carte */
+.mat-raised-button {
+  width: 100%; /* Largeur du bouton */
+  margin-top: 20px; /* Marge supérieure du bouton */
+}

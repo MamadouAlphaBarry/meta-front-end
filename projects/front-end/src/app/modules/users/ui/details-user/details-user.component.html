@@ -1,0 +1,140 @@
+<!--div class="container mt-3">
+
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-bs-toggle="tab" href="#base">Information De Base</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#contact">Information De Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#resource">Information De Resource</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#anagraphe">Registre De Paie</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#cost">Cout Resource</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#history">Cout Historique</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#stats">Statistiques</a>
+      </li>
+    </ul>
+
+
+    <div class="tab-content">
+      <div id="base" class="container tab-pane active"><br>
+       <app-base-info></app-base-info>
+    </div>
+      <div id="contact" class="container tab-pane fade"><br>
+        <app-contact-info></app-contact-info>
+    </div>
+      <div id="resource" class="container tab-pane fade"><br>
+        <app-resource-info></app-resource-info>
+    </div>
+      <div id="anagraphe" class="container tab-pane fade"><br>
+        <app-anagraphe-info></app-anagraphe-info>
+      </div>
+      <div id="cost" class="container tab-pane fade">
+        <app-resource-cost></app-resource-cost>
+      </div>
+      <div id="history" class="container tab-pane fade">
+        <app-history-cost></app-history-cost>
+      </div>
+      <div id="stats" class="container tab-pane fade">
+        <app-statistiques></app-statistiques>
+      </div>
+    </div>
+  </div-->
+
+<div class="container mt-3">
+  <mat-tab-group>
+    <mat-tab label="Information De Base">
+      <ng-template matTabContent>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Information De Base</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <app-base-info></app-base-info>
+          </mat-card-content>
+        </mat-card>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Information De Contact">
+      <ng-template matTabContent>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Information De Contact</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <app-contact-info></app-contact-info>
+          </mat-card-content>
+        </mat-card>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Information De Resource">
+      <ng-template matTabContent>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Information De Resource</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <app-resource-info></app-resource-info>
+          </mat-card-content>
+        </mat-card>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Registre De Paie">
+      <ng-template matTabContent>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Registre De Paie</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <app-anagraphe-info></app-anagraphe-info>
+          </mat-card-content>
+        </mat-card>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Cout Resource">
+      <ng-template matTabContent>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Cout Resource</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <app-resource-cost></app-resource-cost>
+          </mat-card-content>
+        </mat-card>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Cout Historique">
+      <ng-template matTabContent>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Cout Historique</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <app-history-cost></app-history-cost>
+          </mat-card-content>
+        </mat-card>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Statistiques">
+      <ng-template matTabContent>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Statistiques</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <app-statistiques></app-statistiques>
+          </mat-card-content>
+        </mat-card>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</div>

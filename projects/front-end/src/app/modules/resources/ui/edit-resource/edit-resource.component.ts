@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CrudServiceService } from 'projects/front-end/src/app/services/crud-service.service';
 
 @Component({
   selector: 'app-edit-resource',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit-resource.component.css']
 })
 export class EditResourceComponent {
+  constructor(private crudService:CrudServiceService){}
 
 }
