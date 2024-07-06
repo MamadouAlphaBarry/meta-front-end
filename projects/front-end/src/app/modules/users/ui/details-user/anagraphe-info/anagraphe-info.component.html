@@ -1,3 +1,4 @@
+
 <!--div class="container mt-3">
     <div class="card">
       <div class="card-header">Registre de Paie</div>
@@ -122,18 +123,18 @@
   <mat-card>
     <mat-card-header>Registre de Paie</mat-card-header>
     <mat-card-content>
-      <form>
+      <form [formGroup]="anagraferesourceInfoForm">
         <div class="row mt-3">
           <div class="col">
             <mat-form-field class="mat-form-field">
               <mat-label>Code Fiscale</mat-label>
-              <input matInput placeholder="CODE FISCAL" name="codfiscal">
+              <input matInput placeholder="CODE FISCAL" name="codfiscal" formControlName="codfiscal">
             </mat-form-field>
           </div>
           <div class="col">
             <mat-form-field class="mat-form-field">
               <mat-label>Matricola</mat-label>
-              <input matInput placeholder="Entrez la Matricule" name="matricule">
+              <input matInput placeholder="Entrez la Matricule" name="matricule" formControlName="matricule">
             </mat-form-field>
           </div>
         </div>
@@ -141,20 +142,17 @@
           <div class="col">
             <mat-form-field class="mat-form-field">
               <mat-label>CCNL</mat-label>
-              <mat-select>
-                <mat-option>Torino</mat-option>
-                <mat-option>Milano</mat-option>
-                <mat-option>Verona</mat-option>
-                <mat-option>Vicenza</mat-option>
-                <mat-option>Padova</mat-option>
-                <mat-option>Bologna</mat-option>
+              <mat-select formControlName="ccnl" name="ccnl" >
+                <mat-option [value]="1" >Commercio</mat-option>
+                <mat-option [value]="2">Metalmeccanico</mat-option>
+
               </mat-select>
             </mat-form-field>
           </div>
           <div class="col">
             <mat-form-field class="mat-form-field">
               <mat-label>Lettre di Asssuntion</mat-label>
-              <input type="text" matInput placeholder="Enter la lettre " name="lettre">
+              <input type="text" matInput placeholder="Enter la lettre " name="lettre" formControlName="lettre">
             </mat-form-field>
           </div>
         </div>
@@ -162,13 +160,13 @@
           <div class="col-6">
             <mat-form-field class="mat-form-field">
               <mat-label>Date Du Debut</mat-label>
-              <input matInput type="date" placeholder="datedebut" name="debut">
+              <input matInput type="date" placeholder="datedebut" name="datedebut" formControlName="datedebut">
             </mat-form-field>
           </div>
           <div class="col">
             <mat-form-field class="mat-form-field">
               <mat-label>Date Fin</mat-label>
-              <input matInput type="date" placeholder="Entrer la date de fin" name="fin">
+              <input matInput type="date" placeholder="Entrer la date de fin" name="datefin" formControlName="datefin">
             </mat-form-field>
           </div>
         </div>
@@ -176,12 +174,12 @@
           <div class="col-6">
             <mat-form-field class="mat-form-field">
               <mat-label>IBAN</mat-label>
-              <input matInput placeholder="IBAN" name="numService">
+              <input matInput placeholder="IBAN" name="iban" formControlName="iban">
             </mat-form-field>
           </div>
           <div class="col">
             <div class="form-group">
-              <mat-radio-group>
+              <mat-radio-group formControlName="vincolo" name="vincolo">
                 <mat-radio-button value="option1">Vincolo Sur le profile d'heure</mat-radio-button>
                 <mat-radio-button value="option2">Transfert Activè</mat-radio-button>
                 <mat-radio-button>Absence Activè</mat-radio-button>
@@ -192,35 +190,29 @@
             </div>
           </div>
         </div>
-        <div class="card mt-3">
-          <div class="card-header">Profile horaire de la Semaine</div>
-          <div class="card-body">
-            <table class="table">
-              <thead>
-              <tr>
-                <th>Lun.</th>
-                <th>Mar.</th>
-                <th>Mer.</th>
-                <th>Jeu.</th>
-                <th>Ven.</th>
-                <th>Sam.</th>
-                <th>Dim.</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td><input matInput type="number" value="8" name="lun"></td>
-                <td><input matInput type="number" value="8" name="mar"></td>
-                <td><input matInput type="number" value="8" name="mer"></td>
-                <td><input matInput type="number" value="8" name="jeu"></td>
-                <td><input matInput type="number" value="8" name="ven"></td>
-                <td><input matInput type="number" value="0" name="sam"></td>
-                <td><input matInput type="number" value="0" name="dim"></td>
-              </tr>
-              </tbody>
+        <mat-card>
+          <mat-card-header><mat-card-title>Profile horaire de la Semaine</mat-card-title></mat-card-header>
+          <mat-card-content>
+            <div class="table-container">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
+              <ng-container matColumnDef="{{day}}" *ngFor="let day of displayedColumns">
+                <th mat-header-cell *matHeaderCellDef>{{day}}</th>
+                <td mat-cell *matCellDef="let element">
+                  <!--UTILISER LES ATTRIBUTS DE  TEMPLATE POUR RECUPERER LES VALEURS DU TABLE DU PROFILE HORAIRES-->
+                  <mat-form-field appearance="fill">
+                    <input matInput type="number" [(ngModel)]="element[day]" name="day" formControlName="day">
+                  </mat-form-field>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
-          </div>
-        </div>
+            </div>
+
+          </mat-card-content>
+        </mat-card>
+
       </form>
     </mat-card-content>
     <mat-card-footer>

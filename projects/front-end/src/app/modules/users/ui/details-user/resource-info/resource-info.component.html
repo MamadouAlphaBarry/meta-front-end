@@ -89,30 +89,31 @@
             </div>
           </div-->
         <div class="container mt-3">
+
           <mat-card>
             <mat-card-header>Information Sur les Resource</mat-card-header>
             <mat-card-content>
-              <form>
+              <form [formGroup]="resourceInfoForm" (ngSubmit)="handleSubmit()">
                 <div class="row mt-3">
                   <div class="col">
                     <mat-form-field class="mat-form-field">
                       <mat-label>Encadrement</mat-label>
-                      <mat-select class="form-select mt-3">
-                        <mat-option>Employè</mat-option>
-                        <mat-option>Consultant</mat-option>
+                      <mat-select class="form-select mt-3" formControlName="encadrement" name="encadrement">
+                        <mat-option [value]="1">Employè</mat-option>
+                        <mat-option [value]="2">Consultant</mat-option>
                       </mat-select>
                     </mat-form-field>
                   </div>
                   <div class="col">
                     <mat-form-field class="mat-form-field">
                       <mat-label>Qualification</mat-label>
-                      <mat-select class="form-select mt-3">
-                        <mat-option>Dirigent</mat-option>
-                        <mat-option>Cadre</mat-option>
-                        <mat-option>Apprenant</mat-option>
-                        <mat-option>Collaborateur</mat-option>
-                        <mat-option>Stagiaire</mat-option>
-                        <mat-option>Executant</mat-option>
+                      <mat-select class="form-select mt-3" formControlName="qualification" name="qualification">
+                        <mat-option [value]="1">Dirigent</mat-option>
+                        <mat-option [value]="2">Cadre</mat-option>
+                        <mat-option [value]="3">Apprenant</mat-option>
+                        <mat-option [value]="4">Collaborateur</mat-option>
+                        <mat-option [value]="5">Stagiaire</mat-option>
+                        <mat-option [value]="6">Executant</mat-option>
                       </mat-select>
                     </mat-form-field>
                   </div>
@@ -122,22 +123,22 @@
                   <div class="col">
                     <mat-form-field class="mat-form-field">
                       <mat-label>Societè</mat-label>
-                      <mat-select class="form-select mt-3">
-                        <mat-option>CWS S.r.l</mat-option>
-                        <mat-option>SYN-ET S.l</mat-option>
+                      <mat-select class="form-select mt-3" formControlName="societe" name ="societe">
+                        <mat-option [value]="1">CWS S.r.l</mat-option>
+                        <mat-option [value]="2">SYN-ET S.l</mat-option>
                       </mat-select>
                     </mat-form-field>
                   </div>
                   <div class="col">
                     <mat-form-field class="mat-form-field">
                       <mat-label>Business Unit</mat-label>
-                      <mat-select class="form-select mt-3">
-                        <mat-option>SOO7- ICT</mat-option>
-                        <mat-option>S008-INFRA</mat-option>
-                        <mat-option>SOO9-HR</mat-option>
-                        <mat-option>S010-IT FINANCE</mat-option>
-                        <mat-option>S011-BUREAU D'ACHAT</mat-option>
-                        <mat-option>S012-BANKING</mat-option>
+                      <mat-select class="form-select mt-3" formControlName="bu" name="bu">
+                        <mat-option [value]="1">SOO7- ICT</mat-option>
+                        <mat-option [value]="2">S008-INFRA</mat-option>
+                        <mat-option [value]="3">SOO9-HR</mat-option>
+                        <mat-option [value]="4">S010-IT FINANCE</mat-option>
+                        <mat-option [value]="5">S011-BUREAU D'ACHAT</mat-option>
+                        <mat-option [value]="7">S012-BANKING</mat-option>
                       </mat-select>
                     </mat-form-field>
                   </div>
@@ -147,9 +148,9 @@
                   <div class="col">
                     <mat-form-field class="mat-form-field">
                       <mat-label>SuperViseur</mat-label>
-                      <mat-select class="form-select mt-3">
-                        <mat-option>Barry Alpha</mat-option>
-                        <mat-option>Marco Mancini</mat-option>
+                      <mat-select class="form-select mt-3" formControlName="supervisor" name="supervisor">
+                        <mat-option [value]="1">Barry Alpha</mat-option>
+                        <mat-option [value]="2">Marco Mancini</mat-option>
                         <mat-option>Adama Dioulde</mat-option>
                         <mat-option>Barry Aissatou</mat-option>
                         <mat-option>Keita Oury</mat-option>
@@ -159,7 +160,7 @@
                   </div>
                   <div class="col">
                     <mat-form-field class="mat-form-field">
-                      <input matInput placeholder="Niveau D'etude" name="niveauEtude">
+                      <input matInput placeholder="Niveau D'etude" name="niveauEtude" formControlName="niveauEtude">
                     </mat-form-field>
                   </div>
                 </div>
@@ -167,7 +168,7 @@
                 <div class="row mt-3">
                   <div class="col-6">
                     <mat-form-field class="mat-form-field">
-                      <input matInput type="date" placeholder="DATE PATRONA" name="datePatrona">
+                      <input matInput type="date" placeholder="DATE PATRONA" name="datePatrona" formControlName="datePatrona">
                     </mat-form-field>
                   </div>
                   <div class="col">

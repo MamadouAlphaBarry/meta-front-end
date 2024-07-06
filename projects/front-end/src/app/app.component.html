@@ -57,13 +57,20 @@
     <button mat-menu-item>Edit resource</button>
     <mat-divider></mat-divider>
   </mat-menu>
+<mat-menu #customerMenu>
+<button mat-menu-item routerLink="/customers/create">Create</button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item routerLink="/customers/edit">Edit</button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item routerLink="/customers/list">List</button>
 
+</mat-menu>
 </mat-toolbar>
 <mat-drawer-container>
   <mat-drawer #mydrawer mode="side" position="start" opened="true">
     <mat-nav-list>
       <mat-list-item>
-        <button mat-button routerLink="/" >
+        <button mat-button routerLink="/dashboard" >
 
          <mat-icon>home</mat-icon> DashBoard
 
@@ -102,7 +109,7 @@
     </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item>
-        <button mat-button [matMenuTriggerFor]="userMenu">
+        <button mat-button [matMenuTriggerFor]="customerMenu">
           <mat-icon>people</mat-icon>
           <mat-icon iconPositionEnd>arrow_drop_down</mat-icon> Customer
         </button>
@@ -112,8 +119,11 @@
   </mat-drawer>
   <mat-drawer-content>
     <router-outlet></router-outlet>
-    <div style="min-height: 15px;"></div>
-    <app-dash-board></app-dash-board>
+    <div style="min-height: 100vh;"></div>
+
+
+
+
 
   </mat-drawer-content>
 

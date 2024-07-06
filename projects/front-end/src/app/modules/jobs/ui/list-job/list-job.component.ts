@@ -13,6 +13,7 @@ import {ListJobDataSource, ListJobItem} from "./list-job-datasource";
 //  styleUrls: ['./list-job.component.css']
   template: `
     <div class="mat-elevation-z8">
+      <h2>Job List</h2>
       <table mat-table class="full-width-table" matSort aria-label="Elements">
         <!-- Id Column -->
         <ng-container matColumnDef="id">
@@ -28,12 +29,17 @@ import {ListJobDataSource, ListJobItem} from "./list-job-datasource";
         <!-- Code Column -->
         <ng-container matColumnDef="code">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Code</th>
-          <td mat-cell *matCellDef="let row">{{row.code}}</td>
+          <td mat-cell *matCellDef="let row">
+            <a [routerLink]="'/details/' + row.id" style=" font-size: 16px;">
+            {{row.code}}</a></td>
         </ng-container>
         <!-- Bu Column -->
         <ng-container matColumnDef="businessUnit">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Business Unit</th>
-          <td mat-cell *matCellDef="let row">{{row.name}}</td>
+          <td mat-cell *matCellDef="let row">
+            <a [routerLink]="'/details/' + row.id" style=" font-size: 16px;">
+              {{row.name}}</a></td>
+
         </ng-container>
         <!-- Client Column -->
         <ng-container matColumnDef="client">

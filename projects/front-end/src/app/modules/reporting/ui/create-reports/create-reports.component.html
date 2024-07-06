@@ -1,3 +1,129 @@
+<pre >
+  {{daysInMay2024|json}}
+</pre>
+<div class="month">
+  <ul >
+    <li class="prev " (click)="incrementMonth(date.getMonth())">&#10094;</li>
+    <li class="next" (click)="decrementMonth(date.getMonth())">&#10095;</li>
+    <li>{{months[this.date.getMonth()]}}<br><span style="font-size:18px">{{this.date?.getFullYear()}}</span></li>
+  </ul>
+</div>
+<div id="calendar">
+<ul class="weekdays">
+  <div *ngFor="let item of daysInMay2024">
+    <div *ngIf="item.dayName === 'Monday';">
+      <li>{{item.date}}</li>
+    </div>
+
+  </div>
+</ul>
+<hr>
+<ul class="weekdays">
+  <div *ngFor="let item of daysInMay2024">
+    <div *ngIf="item.dayName === 'Tuesday';">
+      <li>{{item.date}}</li>
+    </div>
+
+  </div>
+</ul>
+<hr>
+<ul class="weekdays">
+  <div *ngFor="let item of daysInMay2024">
+    <div *ngIf="item.dayName === 'Wednesday';">
+      <li>{{item.date}}</li>
+    </div>
+
+  </div>
+</ul>
+<hr>
+<ul class="weekdays">
+  <div *ngFor="let item of daysInMay2024">
+    <div *ngIf="item.dayName === 'Thursday';">
+      <li>{{item.date}}</li>
+    </div>
+
+  </div>
+</ul>
+<hr>
+<ul class="weekdays">
+  <div *ngFor="let item of daysInMay2024">
+    <div *ngIf="item.dayName === 'Friday';">
+      <li>{{item.date}}</li>
+    </div>
+
+  </div>
+</ul>
+<hr>
+<ul class="weekdays">
+  <div *ngFor="let item of daysInMay2024">
+    <div *ngIf="item.dayName === 'Saturday';">
+      <li>{{item.date}}</li>
+    </div>
+
+  </div>
+</ul>
+<hr>
+<ul class="weekdays">
+  <div *ngFor="let item of daysInMay2024">
+    <div *ngIf="item.dayName === 'Sunday';">
+      <li>{{item.date}}</li>
+    </div>
+
+  </div>
+</ul>
+</div>
+<hr>
+<ul class="weekdays">
+  <li *ngFor="let d of days ">{{d}}</li>
+  <div *ngFor="let item of daysInMay2024">
+    <div *ngIf="item.dayName === 'Monday'; else notSunday">
+      <li>{{item.date}}</li>
+    </div>
+    <ng-template #notSunday>
+      <li>no</li>
+    </ng-template>
+    <div *ngIf="item.dayName === 'Tuesday'; else notSunday">
+      <li>{{item.date}}</li>
+    </div>
+    <ng-template #notSunday>
+      <li>no</li>
+    </ng-template>
+    <div *ngIf="item.dayName === 'Wednesday'; else notSunday">
+      <li>{{item.date}}</li>
+    </div>
+    <ng-template #notSunday>
+      <li>no</li>
+    </ng-template>
+    <div *ngIf="item.dayName === 'Thursday'; else notSunday">
+      <li>{{item.date}}</li>
+    </div>
+    <ng-template #notSunday>
+      <li>no</li>
+    </ng-template>
+    <div *ngIf="item.dayName === 'Friday'; else notSunday">
+      <li>{{item.date}}</li>
+    </div>
+    <ng-template #notSunday>
+      <li>no</li>
+    </ng-template>
+    <div *ngIf="item.dayName === 'Saturday'; else notSunday">
+      <li>{{item.date}}</li>
+    </div>
+    <ng-template #notSunday>
+      <li>no</li>
+    </ng-template>
+    <div *ngIf="item.dayName === 'Sunday'; else notSunday">
+      <li>{{item.date}}</li>
+    </div>
+    <ng-template #notSunday>
+      <li>no</li>
+    </ng-template>
+  </div>
+
+</ul>
+
+
+<!--
 <div class="contaiener">
     <div class="row">
 
@@ -13,7 +139,7 @@
     </div>
 </div>
 <div *ngFor="let day of daysInMonth">
-    <!--p>{{ day.day }} - {{ day.date }}</p-->
+    &lt;!&ndash;p>{{ day.day }} - {{ day.date }}</p&ndash;&gt;
   </div>
   <table class="table table-bordered mt-5" style="width:100%">
     <thead>
@@ -22,9 +148,9 @@
         <th *ngFor="let day of daysInMonth">
             <p>{{ day.day }}</p>
             <p>{{ day.date }}</p>
-            
+
         </th>
-       
+
       </tr>
     </thead>
     <tbody>
@@ -34,7 +160,7 @@
                 <p style="font-weight: bold;">Solidarietà - ICT</p></td>
             <td *ngFor="let day of daysInMonth">
                 <input type="text" class="form-control">
-                
+
             </td>
         </tr>
         <tr >
@@ -43,7 +169,7 @@
                 <p style="font-weight: bold;">Solidarietà - ICT</p></td>
             <td *ngFor="let day of daysInMonth">
                 <p><input type="text" class="form-control"></p>
-                
+
             </td>
         </tr>
     </tbody>
@@ -51,11 +177,105 @@
         <tr >
             <td style="width:10%">
                 <p style="font-weight: bold;">TOTALE</p>
-                
+
             <td *ngFor="let day of daysInMonth">
                 <p>X</p>
-                
+
             </td>
         </tr>
       </tfoot>
-  </table>
+  </table>-->
+<!--<mat-card>-->
+<!--  <mat-form-field>-->
+<!--    <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" (dateChange)="onDateChange($event)">-->
+<!--    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+<!--    <mat-datepicker #picker></mat-datepicker>-->
+<!--  </mat-form-field>-->
+<!--</mat-card>-->
+<!--<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">-->
+<!--  <ng-container matColumnDef="date">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Date </th>-->
+<!--    <td mat-cell *matCellDef="let element">-->
+<!--      <mat-card>-->
+<!--        <div>{{ element.date }}</div>-->
+<!--        <button mat-button (click)="openDialog(element)">Enter Hours</button>-->
+<!--        <div *ngIf="element.hours">Worked Hours: {{ element.hours }}</div>-->
+<!--      </mat-card>-->
+<!--    </td>-->
+<!--  </ng-container>-->
+
+<!--  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+<!--  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
+<!--</table>-->
+<!--
+<mat-card>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" (dateChange)="onDateChange($event)">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</mat-card>
+<h2>Table</h2>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container *ngFor="let week of displayedColumns; let i = index" [matColumnDef]="week">
+    <th mat-header-cell *matHeaderCellDef> {{ week }} </th>
+    <td mat-cell *matCellDef="let row">
+      <ng-container *ngIf="row[i]">
+        <mat-card>
+          <div>{{ row[i].date }}</div>
+          <button mat-button (click)="openDialog(row[i])">Enter Hours</button>
+          <div *ngIf="row[i].hours">Worked Hours: {{ row[i].hours }}</div>
+        </mat-card>
+      </ng-container>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+-->
+<pre>
+  {{dayInMonth|json}}
+
+</pre>
+<!--
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <mat-card>
+        <mat-card-header>Le nom de l'utilisateur</mat-card-header>
+        <mat-card-content>dd</mat-card-content>
+        <mat-card-footer>Footer</mat-card-footer>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<table mat-table [dataSource]="daysInMonth" class="mat-elevation-z8">
+  <ng-container matColumnDef="day">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let day">{{ day.day }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let day">{{ day.date }}</td>
+  </ng-container>
+
+  <tr mat-row *matRowDef="let row; columns: ['day', 'date'];"></tr>
+</table>
+
+<table mat-table [dataSource]="jobs" class="mat-elevation-z8">
+  <ng-container matColumnDef="job">
+    <th mat-header-cell *matHeaderCellDef style="width:10%">Job</th>
+    <td mat-cell *matCellDef="let job">{{ job.name }}</td>
+  </ng-container>
+
+  <ng-container *ngFor="let day of daysInMonth; let i = index" [matColumnDef]="day.day">
+    <th mat-header-cell *matHeaderCellDef>{{ day.day }}</th>
+    <td mat-cell *matCellDef="let job">{{ job.hours[i] }}</td>
+  </ng-container>
+
+  <tr mat-row *matRowDef="let row; columns: dynamicColumns;"></tr>
+</table>
+-->

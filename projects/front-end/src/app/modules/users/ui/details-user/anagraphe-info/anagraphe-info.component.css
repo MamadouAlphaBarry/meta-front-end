@@ -25,3 +25,7 @@
 .mat-card-footer .col {
   margin-bottom: 10px;
 }
+.table-container {
+  max-height: 400px; /* Adjust this value according to your layout */
+  overflow-y: auto;
+}

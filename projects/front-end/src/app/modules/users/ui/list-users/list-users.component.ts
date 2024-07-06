@@ -47,17 +47,44 @@ paginator!:MatPaginator;
     this.dataSource.sort=this.sort;
   }
   generateUser() {
-    for (let i = 0; i < 1000; i++) {
+    const nomsEtPrenomsItaliens = [
+      "Marco Mancini",
+      "Alessandra Rossi",
+      "Luca Bianchi",
+      "Giulia Romano",
+      "Francesco Colombo",
+      "Elena Ricci",
+      "Andrea Gallo",
+      "Martina Moretti",
+      "Davide Conti",
+      "Federica Greco",
+      "Stefano De Luca",
+      "Valentina Rizzo",
+      "Matteo Ferraro",
+      "Chiara Russo",
+      "Roberto Barbieri",
+      "Sara Costa",
+      "Simone Bruno",
+      "Laura Parisi",
+      "Giovanni Esposito",
+      "Raffaella Giordano"
+    ];
+    const emailsFictifs = nomsEtPrenomsItaliens.map(nomEtPrenom => {
+      const [prenom, nom] = nomEtPrenom.toLowerCase().split(' ');
+      return `${prenom}.${nom}@cws.it`;
+    });
+    const typesPostes = ["employé", "consultant"];
+    for (let i = 0; i <21 ; i++) {
       const user: any = {
         id: i + 1,
-        name: `User ${i + 1}`,
-        email: `user${i + 1}@example.com`,
+        name: nomsEtPrenomsItaliens.map(nomEtPrenom => nomEtPrenom.split(' ')[0])[i],
+        email: emailsFictifs[i],
         password: `password${i + 1}`,
         createdAt: new Date(),
         username: `username${i + 1}`,
-        firstName: `First${i + 1}`,
-        lastName: `Last${i + 1}`,
-        title: `Title ${i + 1}`,
+        firstName: ``,
+        lastName: nomsEtPrenomsItaliens[i],
+        title: typesPostes[Math.floor(Math.random() * typesPostes.length)],
         displayName: `Display Name ${i + 1}`
       };
       this.users.push(user);

@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { EditInfoContactDto } from '../../../models/EditInfoContactDto';
 import { CrudServiceService } from 'projects/front-end/src/app/services/crud-service.service';
+import {AlertServiceService} from "../../../../../services/alert-service.service";
 
 @Component({
   selector: 'app-contact-info',
   templateUrl: './contact-info.component.html',
   styleUrls: ['./contact-info.component.css']
 })
-export class ContactInfoComponent {
+export class ContactInfoComponent implements OnInit{
   contact:EditInfoContactDto={
     sede:"",
     city:"",
@@ -33,8 +34,16 @@ export class ContactInfoComponent {
     pays: new FormControl("",[Validators.required]),
     //telephone: new FormControl("",[Validators.required]),
   });
-constructor(private crudService:CrudServiceService){}
+  ngOnInit() {
+
+  }
+
+  constructor(private crudService:CrudServiceService,private alerteService:AlertServiceService){}
+  testHandle(){
+  this.handleSubmit()
+  }
   handleSubmit(){
+
       console.log(this.contactForm.value);
       if (this.contactForm.valid) {
         if (this.contactForm.controls.addresse.value) {
@@ -64,7 +73,7 @@ constructor(private crudService:CrudServiceService){}
         if (this.contactForm.controls.telephoneInterne.value) {
           this.contact.etat=this.contactForm.controls.telephoneInterne.value;
         }
-        
+
       }
       alert("Hello world");
       console.log(this.contact)

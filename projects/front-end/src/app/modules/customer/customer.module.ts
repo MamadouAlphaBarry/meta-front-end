@@ -13,6 +13,7 @@ import {MatInput} from "@angular/material/input";
 import {MatButton} from "@angular/material/button";
 import {MatDivider} from "@angular/material/divider";
 import {MatIcon} from "@angular/material/icon";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -23,19 +24,20 @@ import {MatIcon} from "@angular/material/icon";
 
     CustomerComponent
   ],
-  imports: [
-    CommonModule,
-    CustomerRoutingModule,
-    MatCard,
-    MatCardContent,
-    MatFormField,
-    MatInput,
-    MatButton,
-    MatCardHeader,
-    MatCardTitle,
-    MatLabel,
-    MatDivider,
-    MatIcon
-  ]
+    imports: [
+        CommonModule,
+        CustomerRoutingModule,
+        MatCard,
+        MatCardContent,
+        MatFormField,
+        MatInput,
+        MatButton,
+        MatCardHeader,
+        MatCardTitle,
+        MatLabel,
+        MatDivider,
+        MatIcon,
+        ReactiveFormsModule
+    ]
 })
 export class CustomerModule { }

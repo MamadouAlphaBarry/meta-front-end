@@ -17,6 +17,7 @@ import {MatCheckbox} from "@angular/material/checkbox";
 import {MatButton, MatButtonModule} from "@angular/material/button";
 //import {MatRadioModule} from "@angular/material/radio";
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+
 //import { MatInputModule } from '@angular/material/input';
 //import { MatButtonModule } from '@angular/material/button';
 //import { MatSelectModule } from '@angular/material/select';
@@ -24,6 +25,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
+import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from "@angular/material/datepicker";
+import {provideNativeDateAdapter} from "@angular/material/core";
+import {MatIcon} from "@angular/material/icon";
 //import { MatCardModule } from '@angular/material/card';
 
 
@@ -36,34 +40,35 @@ import {MatSortModule} from "@angular/material/sort";
     ListJobComponent,
 
   ],
-  imports: [
-    CommonModule,
-    JobsRoutingModule,
-    ReactiveFormsModule,
-    MatCard,
-    MatCardHeader,
-    MatCardContent,
-    MatDivider,
-    MatCardTitle,
-    MatFormField,
-    MatInput,
-    MatLabel,
-    MatSelect,
-    MatOption,
-    MatCheckbox,
-    MatButton,
-    MatError,
+    imports: [
+        CommonModule,
+        JobsRoutingModule,
+        ReactiveFormsModule,
+        MatCard,
+        MatCardHeader,
+        MatCardContent,
+        MatDivider,
+        MatCardTitle,
+        MatFormField,
+        MatInput,
+        MatLabel,
+        MatSelect,
+        MatOption,
+        MatCheckbox,
+        MatButton,
+        MatError,
 
-  MatInputModule,
-  MatButtonModule,
-  MatSelectModule,
-  MatRadioModule,
-  MatCardModule,
-  ReactiveFormsModule,
-    MatTableModule, MatPaginatorModule, MatSortModule
+        MatInputModule,
+        MatButtonModule,
+        MatSelectModule,
+        MatRadioModule,
+        MatCardModule,
+        ReactiveFormsModule,
+        MatTableModule, MatPaginatorModule, MatSortModule, MatDatepickerInput, MatDatepickerToggle, MatDatepicker, MatIcon
 
-  ],
-  providers:[JobService]
+    ],
+  providers:[JobService,provideNativeDateAdapter()
+  ]
 })
 export class JobsModule {
 

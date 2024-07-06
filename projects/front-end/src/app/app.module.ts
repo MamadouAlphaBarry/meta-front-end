@@ -27,7 +27,11 @@ import { DashBoardComponent } from './dash-board/dash-board.component';
 import {CounterComponent} from "./counter/counter.component";
 import {MatSlideToggle} from "@angular/material/slide-toggle";
 import { ReloadDashboardComponent } from './reload-dashboard/reload-dashboard.component';
+import {TOASTR_TOKEN, ToastServiceService} from "./services/toast-service.service";
+import { ToastrModule } from 'ngx-toastr';
+import {MAT_DATE_LOCALE} from "@angular/material/core";
 
+declare const toastr: ToastServiceService;
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -63,6 +67,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
         RouterModule,
         HttpClientModule,
         KeycloakAngularModule,
+        ToastrModule.forRoot(),
         MatIconButton,
         MatToolbar,
         MatMenuTrigger,
@@ -100,6 +105,11 @@ function initializeKeycloak(keycloak: KeycloakService) {
        multi :true,
        deps : [KeycloakService]
       },
+      {
+          provide: TOASTR_TOKEN,
+          useValue: toastr
+      },
+      {provide: MAT_DATE_LOCALE, useValue: 'it-IT'},
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]

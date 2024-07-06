@@ -1,10 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
+import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
+import {filter} from "rxjs";
 
 @Component({
   selector: 'app-dash-board',
-  template: `
+  template:
+      `
+
     <app-counter></app-counter>
     <app-reload-dashboard></app-reload-dashboard>
     <div class="grid-container">
@@ -62,7 +66,6 @@ import { map } from 'rxjs/operators';
         }
       </mat-grid-list>
     </div>
-
   `,
   styles: `
     .grid-container {
@@ -91,7 +94,24 @@ import { map } from 'rxjs/operators';
 })
 export class DashBoardComponent {
   private breakpointObserver = inject(BreakpointObserver);
+  currentRoute!: string;
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  }
 
+  isDashboardRouteActive: boolean = false;
+  url:any
+  ngOnInit() {
+    this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.currentRoute = this.router.routerState.snapshot.url;
+      console.log(this.currentRoute)
+      if (this.currentRoute=="/"){
+        this.isDashboardRouteActive=true;
+      }
+    });
+
+  }
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {

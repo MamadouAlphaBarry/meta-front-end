@@ -1,32 +1,41 @@
-import {Component, inject} from '@angular/core';
+import {Component, Inject, inject, OnInit} from '@angular/core';
 import { JobEditRequestDto } from '../../models/JobEditRequestDto';
 import { CrudServiceService } from 'projects/front-end/src/app/services/crud-service.service';
-
+import { AlertServiceService } from 'projects/front-end/src/app/services/alert-service.service';
 import { LocalDateTime } from '@js-joda/core';
 
 import {Validators, FormGroup, FormControl, FormBuilder} from '@angular/forms';
+import Swal from 'sweetalert2'
+import {environment} from "../../../../../environments/environment";
+import {TOASTR_TOKEN, ToastServiceService} from "../../../../services/toast-service.service";
+import {ActivatedRoute, Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-create-job',
  /** templateUrl: './create-job.component.html',*/
  template: `
+
+     <mat-card *ngIf="errorMessage" class="error-card-color">{{errorMessage}}</mat-card>
+     <mat-card *ngIf="isSuccefullyRequest" class="success-card-color" color="primary"> <a routerLink="">{{response.code}}-{{response.name}}</a> {{response|json}}</mat-card>
+
     <form [formGroup]="jobForm"  (ngSubmit)="onSubmit()">
-      <mat-card class="shipping-card">
+      <mat-card class="job-card">
         <mat-card-header>
-          <mat-card-title>Shipping Information</mat-card-title>
+          <mat-card-title>Create Job</mat-card-title>
         </mat-card-header>
         <mat-card-content>
           <div class="row">
             <div class="col">
               <mat-form-field class="full-width">
                 <mat-label>Job Name:</mat-label>
-                <input matInput placeholder="Name" formControlName="name">
+                <input matInput placeholder="Name" name="name" formControlName="name">
               </mat-form-field>
             </div>
             <div class="col">
               <mat-form-field class="full-width">
                 <mat-label>job Description</mat-label>
-                <input matInput placeholder="Description" formControlName="description">
+                <input matInput placeholder="Description" name="description" formControlName="description">
               </mat-form-field>
             </div>
           </div>
@@ -34,18 +43,24 @@ import {Validators, FormGroup, FormControl, FormBuilder} from '@angular/forms';
             <div class="col">
               <mat-form-field class="full-width">
                 <mat-label>Date Debut</mat-label>
-                <input type="date" matInput placeholder="StartDate" formControlName="startDate">
+                <input  matInput placeholder="StartDate" [matDatepicker]="pickerStartDate" name="startDate" formControlName="startDate">
+                <mat-hint>DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="pickerStartDate"></mat-datepicker-toggle>
+                <mat-datepicker #pickerStartDate></mat-datepicker>
                 @if (jobForm.controls['startDate'].hasError('required')) {
-                  <mat-error>First name is <strong>required</strong></mat-error>
+                  <mat-error>StartDate is <strong>required</strong></mat-error>
                 }
               </mat-form-field>
             </div>
             <div class="col">
               <mat-form-field class="full-width">
                 <mat-label>Date De Fin</mat-label>
-                <input type="date" matInput placeholder="End Date" formControlName="endDate">
+                <input  matInput placeholder="End Date" formControlName="endDate" [matDatepicker]="pickerpickerendDate" name="endDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="pickerpickerendDate"></mat-datepicker-toggle>
+                <mat-datepicker #pickerpickerendDate></mat-datepicker>
                 @if (jobForm.controls['startDate'].hasError('required')) {
-                  <mat-error>Last name is <strong>required</strong></mat-error>
+                  <mat-error>EndDate is <strong>required</strong></mat-error>
                 }
               </mat-form-field>
             </div>
@@ -55,25 +70,25 @@ import {Validators, FormGroup, FormControl, FormBuilder} from '@angular/forms';
           <div class="row">
             <div class="col">
               <mat-form-field class="full-width">
-                <mat-select placeholder="Client" formControlName="client">
-                  @for (state of states; track state) {
-                  <mat-option [value]="state.abbreviation">{{ state.name }}</mat-option>
+                <mat-select placeholder="Client" formControlName="client" >
+                  @for (customer of customers; track customers) {
+                  <mat-option [value]="customer.id" >{{ customer.name }}</mat-option>
                   }
                 </mat-select>
                 @if (jobForm.controls['client'].hasError('required')) {
-                <mat-error>State is <strong>required</strong></mat-error>
+                <mat-error>Customers is <strong>required</strong></mat-error>
                 }
               </mat-form-field>
             </div>
             <div class="col">
               <mat-form-field class="full-width">
                 <mat-select placeholder="BU" formControlName="businessUnit">
-                  @for (state of states; track state) {
-                  <mat-option [value]="state.abbreviation">{{ state.name }}</mat-option>
+                  @for (bu of bus; track bu) {
+                  <mat-option [value]="bu.id">{{ bu.name }}</mat-option>
                   }
                 </mat-select>
                 @if (jobForm.controls['businessUnit'].hasError('required')) {
-                <mat-error>State is <strong>required</strong></mat-error>
+                <mat-error>BusinessUnit is <strong>required</strong></mat-error>
                 }
               </mat-form-field>
             </div>
@@ -82,18 +97,18 @@ import {Validators, FormGroup, FormControl, FormBuilder} from '@angular/forms';
             <div class="col">
               <mat-form-field class="full-width">
                 <mat-select placeholder="PM" formControlName="pm">
-                  @for (state of states; track state) {
-                  <mat-option [value]="state.abbreviation">{{ state.name }}</mat-option>
+                  @for (pm of pms; track pm) {
+                  <mat-option [value]="pm.id">{{ pm.name }}</mat-option>
                   }
                 </mat-select>
-                @if (jobForm.controls['businessUnit'].hasError('required')) {
-                <mat-error>State is <strong>required</strong></mat-error>
+                @if (jobForm.controls['pm'].hasError('required')) {
+                <mat-error>PM is <strong>required</strong></mat-error>
                 }
               </mat-form-field>
             </div>
             <div class="col">
               <mat-form-field class="full-width">
-                <input matInput placeholder="Alias" formControlName="alias">
+                <input matInput placeholder="Alias" formControlName="alias" name="alias">
                 @if (jobForm.controls['client'].hasError('required')) {
                   <mat-error>City is <strong>required</strong></mat-error>
                 }
@@ -102,17 +117,35 @@ import {Validators, FormGroup, FormControl, FormBuilder} from '@angular/forms';
 
           </div>
           <div class="row">
+                <div class="col">
+                  <mat-checkbox  formControlName="isInternal" name="isInternal">isInternal</mat-checkbox>
 
+                </div>
+                <div class="col">
+                  <mat-form-field>
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </div>
           </div>
-          <div class="row">
 
+          <div class="row">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Code" formControlName="code" name="code">
+              @if (jobForm.controls['code'].hasError('required')) {
+              <mat-error>Code is <strong>required</strong></mat-error>
+              }
+            </mat-form-field>
           </div>
           <div class="row">
             <div class="col">
 
               <mat-form-field class="full-width">
                 <mat-label>job comment</mat-label>
-                <textarea matInput placeholder="note" formControlName="note"></textarea>
+                <textarea matInput placeholder="note" formControlName="note" name="note"></textarea>
               </mat-form-field>
 
             </div>
@@ -130,7 +163,7 @@ import {Validators, FormGroup, FormControl, FormBuilder} from '@angular/forms';
       width: 100%;
     }
 
-    .shipping-card {
+    .job-card {
       min-width: 120px;
       margin: 20px auto;
     }
@@ -153,45 +186,87 @@ import {Validators, FormGroup, FormControl, FormBuilder} from '@angular/forms';
     .col:last-child {
       margin-right: 0;
     }
-
+.error-card-color{
+background-color:red;
+margin-top:25px;
+color: white;
+font-style:bold;
+padding:10px;
+}
   `,
   //styleUrls: ['./create-job.component.css']
 
 })
-export class CreateJobComponent {
+export class CreateJobComponent implements OnInit{
+  errorMessage:string|null=null;
+   url = `/api/${environment.microservices.jobCommand}/create`;
+  isSuccefullyRequest:boolean=false;
+  response:any={name:"",code:""};
   hasUnitNumber = false;
   private fb = inject(FormBuilder);
   jobs: JobEditRequestDto[] = [];
+  jobsRequest: any={
+    name: "",
+    code: "",
+    description: "",
+    startDate: "",
+    endDate: "",
+    jobId: "",
+    customerId: "",
+    activityId: "",
+    businessUnitId: "",
+    pmId: "",
+    alias: "",
+    isInternal: false,
+    note: "",
+    enabledAt:""
+
+  };
+
   absences: any[] = [];
   jobForm:FormGroup= new FormGroup({
     name: new FormControl("",[Validators.required,Validators.minLength(7)]),
-    description: new FormControl("",[Validators.required,Validators.email,Validators.required]),
-    startDate: new FormControl("",[Validators.required,Validators.minLength(7)]),
+    description: new FormControl("",[Validators.required]),
+    startDate: new FormControl("",[Validators.required]),
    endDate: new FormControl("",[Validators.required]),
    note: new FormControl("",[Validators.required]),
     client: new FormControl("",[Validators.required]),
     businessUnit: new FormControl("",[Validators.required]),
     pm: new FormControl("",[Validators.required]),
-    alias: new FormControl("",[Validators.required])
+    alias: new FormControl("",[Validators.required]),
+    code: new FormControl("",[Validators.required]),
+   isInternal:new FormControl(false ,Validators.required)
   })
   job:JobEditRequestDto|null=null;
-  states = [
-    {name: 'Alabama', abbreviation: 'AL'},
-    {name: 'Alaska', abbreviation: 'AK'},
-    {name: 'American Samoa', abbreviation: 'AS'},
-    {name: 'Arizona', abbreviation: 'AZ'}]
-  constructor(private crudService:CrudServiceService){
+  bus = [
+    {name: 'Alabama', id: 246},
+    {name: 'Alaska', id: 345},
+    {name: 'American Samoa', id: 346},
+    {name: 'Arizona', id: 67}]
+  pms = [
+    {name: 'Alabama', id: 246},
+    {name: 'Alaska', id: 345},
+    {name: 'American Samoa', id: 346},
+    {name: 'Arizona', id: 67}]
+
+  customers = [
+    {name: 'Juventus', id: 246},
+    {name: 'IBM', id: 345},
+    {name: 'RICOMPUTER', id: 346},
+    {name: 'Arizona', id: 67}]
+  constructor(private crudService:CrudServiceService,@Inject(TOASTR_TOKEN) private toastr: ToastServiceService
+  ,private alertService:AlertServiceService){
    // this.generateJobs();
     //this.generateUsers();
     //this.generateAbsences();
 
   }
+  ngOnInit(): void {
+    this.url=environment.microservices.jobCommand
 
-
-  get name() {
-
-    return null;
   }
+
+
 generateJobs() {
   for (let i = 0; i < 30; i++) {
     const job: any = {
@@ -317,8 +392,59 @@ generateAbsences() {
 }
 
   onSubmit(): void {
+    if (this.jobForm.valid) {
+      const data = this.jobForm.value;
+      console.log(data);
+      this.jobsRequest.name = data.name;
+      this.jobsRequest.description = data.description;
+      this.jobsRequest.startDate = data.startDate;
+      this.jobsRequest.endDate = data.endDate;
+      this.jobsRequest.note = data.note;
+      this.jobsRequest.pmId = data.pm;
+      this.jobsRequest.customerId = data.client;
+      this.jobsRequest.businessUnitId = data.businessUnit;
+      this.jobsRequest.alias = data.alias;
+      this.jobsRequest.isInternal=data.isInternal;
+      this.jobsRequest.code=data.code
+      this.crudService.create(this.jobsRequest,"http://localhost:8083/command/jobs/create").subscribe(
+        result => {
+          console.log(result)
+          let text=result.message.code+"-"+result.message.name;
+          this.alertService.alertSuccessWithCustomablePosition('center-start',text)
+          this.toastr.info("message","Title")
 
-    console.log(this.jobForm.controls)
+            this.isSuccefullyRequest=true;
+          Swal.fire({
+            title: text,
+            showClass: {
+              popup: `
+      animate__animated
+      animate__fadeInUp
+      animate__faster
+    `
+            },
+            hideClass: {
+              popup: `
+      animate__animated
+      animate__fadeOutDown
+      animate__faster
+    `
+            }
+          });
+
+        },
+        error => {
+          alert(error.error.message)
+          console.error(error.error.message);
+          this.errorMessage=error.error.message;
+        }
+      );
+
+
+
+      console.log(this.jobsRequest);
+    }
   }
+
 
 }

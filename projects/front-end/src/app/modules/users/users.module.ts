@@ -31,7 +31,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatSort, MatSortHeader} from "@angular/material/sort";
 import {MatError, MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
-import {MatButton, MatFabButton, MatMiniFabButton} from "@angular/material/button";
+import {MatButton, MatFabButton, MatIconButton, MatMiniFabButton} from "@angular/material/button";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {MatRadioButton, MatRadioGroup} from "@angular/material/radio";
 import {MatTab, MatTabContent, MatTabGroup} from "@angular/material/tabs";
@@ -54,46 +54,47 @@ import {MatTab, MatTabContent, MatTabGroup} from "@angular/material/tabs";
 
 
   ],
-  imports: [
-    CommonModule,
-    UsersRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatIcon,
-    MatCard,
-    MatError,
-    MatOption,
-    MatCardHeader,
-    MatCardContent,
-    MatCardTitle,
-    MatTable,
-    MatHeaderRowDef,
-    MatFooterRowDef,
-    MatHeaderCellDef,
-    MatCellDef,
-    MatColumnDef,
-    MatHeaderCell,
-    MatCell,
-    MatHeaderRow,
-    MatRow,
-    MatRowDef,
-    MatPaginator,
-    MatSort,
-    MatSortHeader,
-    MatFormField,
-    MatInput,
-    MatLabel,
-    MatButton,
-    MatFabButton,
-    MatCardFooter,
-    MatSelect,
-    MatRadioGroup,
-    MatRadioButton,
-    MatMiniFabButton,
-    MatTabGroup,
-    MatTab,
-    MatTabContent
+    imports: [
+        CommonModule,
+        UsersRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatIcon,
+        MatCard,
+        MatError,
+        MatOption,
+        MatCardHeader,
+        MatCardContent,
+        MatCardTitle,
+        MatTable,
+        MatHeaderRowDef,
+        MatFooterRowDef,
+        MatHeaderCellDef,
+        MatCellDef,
+        MatColumnDef,
+        MatHeaderCell,
+        MatCell,
+        MatHeaderRow,
+        MatRow,
+        MatRowDef,
+        MatPaginator,
+        MatSort,
+        MatSortHeader,
+        MatFormField,
+        MatInput,
+        MatLabel,
+        MatButton,
+        MatFabButton,
+        MatCardFooter,
+        MatSelect,
+        MatRadioGroup,
+        MatRadioButton,
+        MatMiniFabButton,
+        MatTabGroup,
+        MatTab,
+        MatTabContent,
+        MatIconButton
 
-  ]
+    ]
 })
 export class UsersModule { }
